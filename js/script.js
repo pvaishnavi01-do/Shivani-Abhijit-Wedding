@@ -315,7 +315,8 @@
   });
 
   enterButton.addEventListener("click", () => {
-    openingScreen.hidden = true;
+    openingScreen.classList.add("open-done");
+    window.setTimeout(() => { openingScreen.hidden = true; }, 800);
     document.body.classList.remove("intro-active");
     pageContent.forEach((element) => {
       element.inert = false;
@@ -357,4 +358,96 @@
 
   updateCountdown();
   window.setInterval(updateCountdown, 1000);
+
+  const scratchCanvas = document.getElementById("scratch-canvas");
+  const scratchTip = document.getElementById("scratch-tip");
+  if (scratchCanvas) {
+    const context = scratchCanvas.getContext("2d", { willReadFrequently: true });
+    let scratching = false;
+    let cleared = false;
+
+    function paintCover() {
+      const rect = scratchCanvas.getBoundingClientRect();
+      const ratio = window.devicePixelRatio || 1;
+      scratchCanvas.width = Math.floor(rect.width * ratio);
+      scratchCanvas.height = Math.floor(rect.height * ratio);
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      const gradient = context.createLinearGradient(0, 0, rect.width, rect.height);
+      gradient.addColorStop(0, "#c9a24b");
+      gradient.addColorStop(.4, "#e6c874");
+      gradient.addColorStop(.6, "#b8892f");
+      gradient.addColorStop(1, "#e6c874");
+      context.fillStyle = gradient;
+      context.fillRect(0, 0, rect.width, rect.height);
+      context.fillStyle = "#5c0f1b";
+      context.font = "600 20px Cinzel, serif";
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.fillText("SCRATCH HERE", rect.width / 2, rect.height / 2);
+    }
+
+    function pointerPosition(event) {
+      const rect = scratchCanvas.getBoundingClientRect();
+      const point = event.touches ? event.touches[0] : event;
+      return { x: point.clientX - rect.left, y: point.clientY - rect.top };
+    }
+
+    function scratchAt(x, y) {
+      context.globalCompositeOperation = "destination-out";
+      context.beginPath();
+      context.arc(x, y, 22, 0, Math.PI * 2);
+      context.fill();
+      context.globalCompositeOperation = "source-over";
+    }
+
+    function revealCountdown() {
+      if (cleared) return;
+      cleared = true;
+      scratchCanvas.classList.add("cleared");
+      scratchTip?.classList.add("visually-hidden");
+      document.getElementById("countdown")?.classList.remove("locked");
+    }
+
+    function checkCleared() {
+      const image = context.getImageData(0, 0, scratchCanvas.width, scratchCanvas.height);
+      let transparent = 0;
+      let sampled = 0;
+      for (let index = 3; index < image.data.length; index += 32) {
+        if (image.data[index] === 0) transparent += 1;
+        sampled += 1;
+      }
+      if (transparent / sampled > .5) revealCountdown();
+    }
+
+    paintCover();
+    window.addEventListener("resize", () => { if (!cleared) paintCover(); });
+    scratchCanvas.addEventListener("mousedown", (event) => {
+      scratching = true;
+      const point = pointerPosition(event);
+      scratchAt(point.x, point.y);
+    });
+    scratchCanvas.addEventListener("mousemove", (event) => {
+      if (!scratching || cleared) return;
+      event.preventDefault();
+      const point = pointerPosition(event);
+      scratchAt(point.x, point.y);
+    });
+    window.addEventListener("mouseup", () => {
+      if (!scratching) return;
+      scratching = false;
+      checkCleared();
+    });
+    scratchCanvas.addEventListener("touchstart", (event) => {
+      scratching = true;
+      const point = pointerPosition(event);
+      scratchAt(point.x, point.y);
+    }, { passive: false });
+    scratchCanvas.addEventListener("touchmove", (event) => {
+      if (!scratching || cleared) return;
+      event.preventDefault();
+      const point = pointerPosition(event);
+      scratchAt(point.x, point.y);
+    }, { passive: false });
+    scratchCanvas.addEventListener("touchend", checkCleared);
+  }
 })();

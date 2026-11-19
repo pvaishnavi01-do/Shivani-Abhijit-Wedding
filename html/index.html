@@ -9,11 +9,15 @@
     />
     <meta name="theme-color" content="#173b36" />
     <title>Abhijit &amp; Shivani | Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Great+Vibes&amp;family=Tiro+Devanagari+Hindi:ital@0;1&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/styles.css" />
     <script src="../js/data.js" defer></script>
     <script src="../js/script.js" defer></script>
   </head>
   <body class="intro-active">
+    <canvas id="fireworks" aria-hidden="true"></canvas>
     <div class="opening-screen" id="opening-screen" role="dialog" aria-modal="true" aria-labelledby="opening-title">
       <div class="opening-card">
         <p class="eyebrow opening-eyebrow" data-en="A special day awaits" data-mr="एका खास दिवसाची आतुरतेने वाट पाहत आहोत">A special day awaits</p>
@@ -41,6 +45,10 @@
     </div>
 
     <a class="skip-link" href="#main" data-en="Skip to invitation" data-mr="निमंत्रणाकडे जा">Skip to invitation</a>
+
+    <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" hidden>
+      <span id="music-label" data-off-en="Music off" data-off-mr="संगीत बंद" data-on-en="Pause music" data-on-mr="संगीत थांबवा" data-error-en="Music unavailable" data-error-mr="संगीत उपलब्ध नाही">Music off</span>
+    </button>
 
     <header class="site-header" id="top">
       <a class="monogram" href="#top" aria-label="Abhijit and Shivani / अभिजित आणि शिवानी">
@@ -98,7 +106,27 @@
         </p>
       </section>
 
-      <section class="countdown-section" aria-labelledby="countdown-title">
+      <section class="scratch-section" id="save-the-date" aria-labelledby="save-the-date-title">
+        <div class="section-heading">
+          <h2 id="save-the-date-title" data-en="Save The Date" data-mr="शुभ विवाह दिनांक">Save The Date</h2>
+          <p data-en="Scratch the golden card to reveal our special day" data-mr="आपल्या शुभ दिवसाचे दर्शन करण्यासाठी सोनेरी कार्ड खुरडा">
+            Scratch the golden card to reveal our special day
+          </p>
+        </div>
+        <div class="scratch-wrap">
+          <div class="scratch-reveal">
+            <p data-en="Save The Date" data-mr="शुभ विवाह दिनांक">Save The Date</p>
+            <p>11 · 02 · 2027</p>
+            <p data-en="Thursday · The Wedding" data-mr="गुरुवार · विवाह">Thursday · The Wedding</p>
+          </div>
+          <canvas class="scratch-canvas" id="scratch-canvas" aria-label="Scratch to reveal the wedding date"></canvas>
+        </div>
+        <p class="scratch-tip" id="scratch-tip" data-en="Scratch the gold with your finger or mouse" data-mr="बोट किंवा माउसने सोनेरी पृष्ठभाग खुरडा">
+          Scratch the gold with your finger or mouse
+        </p>
+      </section>
+
+      <section class="countdown-section locked" id="countdown" aria-labelledby="countdown-title">
         <div class="section-heading">
           <p class="eyebrow" data-en="The day is getting closer" data-mr="शुभ दिवस जवळ येत आहे">The day is getting closer</p>
           <h2 id="countdown-title" data-en="Until we say “I do”" data-mr="आमच्या शुभविवाहापर्यंत">Until we say “I do”</h2>
