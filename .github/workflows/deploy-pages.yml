@@ -27,7 +27,7 @@ jobs:
           mkdir -p _site/assets
           cp -R html/. _site/
           cp -R css js _site/
-          cp assets/GreatVibes-Regular.ttf assets/GreatVibes-OFL.txt assets/abhijit.jpeg assets/abhijit-portrait.jpeg assets/shivani.png assets/divider.svg _site/assets/
+          cp assets/GreatVibes-Regular.ttf assets/GreatVibes-OFL.txt assets/abhijit.jpeg assets/abhijit-portrait.jpeg assets/shivani.png assets/groom.png assets/bride.png assets/divider.svg _site/assets/
           sed -i \
             -e 's|../css/|css/|g' \
             -e 's|../js/|js/|g' \
