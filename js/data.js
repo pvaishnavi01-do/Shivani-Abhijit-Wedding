@@ -1,4 +1,5 @@
 window.INVITATION_DATA = {
+  websiteUrl: "https://pvaishnavi01-do.github.io/Shivani-Abhijit-Wedding",
   weddingDate: { year: 2027, month: 2, day: 11 },
   events: [
     {
@@ -12,7 +13,7 @@ window.INVITATION_DATA = {
     {
       name: { en: "Mehendi", mr: "मेहंदी" },
       date: { en: "Monday, 8 February 2027", mr: "सोमवार, ८ फेब्रुवारी २०२७" },
-      place: { en: "Bhumayya Niwas, Line Galli, Degloor - 431717", mr: "भूमय्या निवास, लाईन गल्ली, देगलूर - ४३१७१७" },
+      place: { en: "Bhumayya Kunj, Line Galli, Degloor - 431717", mr: "भूमय्या कुंज, लाईन गल्ली, देगलूर - ४३१७१७" },
     },
     {
       name: { en: "Carnival", mr: "कार्निव्हल" },
