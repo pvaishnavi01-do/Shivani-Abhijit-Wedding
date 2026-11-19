@@ -15,24 +15,24 @@ window.INVITATION_DATA = {
       place: { en: "Bhumayya Niwas, Line Galli, Degloor - 431717", mr: "भूमय्या निवास, लाईन गल्ली, देगलूर - ४३१७१७" },
     },
     {
-      name: { en: "Sangeet", mr: "संगीत समारंभ" },
-      date: { en: "Wednesday, 10 February 2027", mr: "बुधवार, १० फेब्रुवारी २०२७" },
-      time: { en: "12:00 PM", mr: "दुपारी १२:००" },
-    },
-    {
       name: { en: "Carnival", mr: "कार्निव्हल" },
       date: { en: "Wednesday, 10 February 2027", mr: "बुधवार, १० फेब्रुवारी २०२७" },
-      time: { en: "3:00 PM", mr: "दुपारी ३:००" },
+      time: { en: "10:00 AM", mr: "सकाळी १०:००" },
     },
     {
       name: { en: "Engagement", mr: "साखरपुडा" },
+      date: { en: "Wednesday, 10 February 2027", mr: "बुधवार, १० फेब्रुवारी २०२७" },
+      time: { en: "5:00 PM", mr: "रात्री ५:००" },
+    },
+    {
+      name: { en: "Sangeet", mr: "संगीत समारंभ" },
       date: { en: "Wednesday, 10 February 2027", mr: "बुधवार, १० फेब्रुवारी २०२७" },
       time: { en: "8:00 PM", mr: "रात्री ८:००" },
     },
     {
       name: { en: "Vows", mr: "विवाहाची वचने" },
       date: { en: "Thursday, 11 February 2027", mr: "गुरुवार, ११ फेब्रुवारी २०२७" },
-      time: { en: "6:00 AM", mr: "सकाळी ६:००" },
+      time: { en: "6:30 AM", mr: "सकाळी ६:३०" },
       featured: true,
     },
     {

@@ -131,7 +131,7 @@ a { color: inherit; }
   transform: none;
 }
 .groom-portrait img {
-  object-position: center;
+  object-position: center top;
 }
 .bride-portrait img {
   object-position: center 18%;
