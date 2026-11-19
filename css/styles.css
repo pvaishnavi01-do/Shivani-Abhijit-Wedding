@@ -111,7 +111,7 @@ a { color: inherit; }
 .family-card { flex:1 1 300px; max-width:380px; position:relative; padding:40px 28px; border:1px solid rgba(201,162,75,.5); border-radius:8px; background:linear-gradient(180deg,#fff,var(--cream-2)); box-shadow:0 12px 30px rgba(45,8,15,.25); text-align:center; }
 .family-card::before { content:""; position:absolute; inset:8px; border:1px solid rgba(201,162,75,.35); border-radius:4px; pointer-events:none; }
 .family-portrait {
-  width: 220px;
+  width: 260px;
   max-width: 70%;
   aspect-ratio: 1;
   margin: 0 auto 18px;
@@ -127,9 +127,17 @@ a { color: inherit; }
   display: block;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 18%;
+  transform: scale(1.08);
 }
-.bride-portrait img { object-position: center 24%; }
+.groom-portrait img {
+  object-position: center 28%;
+  transform: scale(1.18);
+}
+.bride-portrait img {
+  object-position: center 24%;
+  transform: scale(1.12);
+}
 .family-label { margin:4px 0 12px; color:var(--gold); font-family:var(--font-display); font-size:.78rem; letter-spacing:3px; text-transform:uppercase; }
 .family-card h3 { margin:4px 0; color:var(--deep-red); font-family:var(--font-script); font-size:2.6rem; font-weight:400; }
 .family-parents { color:var(--maroon); font-size:1.15rem; font-weight:600; }
